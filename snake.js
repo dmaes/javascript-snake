@@ -22,7 +22,7 @@ function Board(containerId, rowsCount, colsCount) {
             }
             html += "</tr>"
         }
-        html += "</table><div class='preview'></div><div class='score'><p>Game is Over</p><p>Your score is <span class='score-value'></span></p></div><button type='button'>Start</button></div>";
+        html += "</table><div class='preview'></div><div class='score'><p>Game Over</p><p>Score: <span class='score-value'></span></p></div><button type='button'>Start</button></div>";
         document.getElementById(containerId).innerHTML = html;
     };
 
@@ -138,6 +138,7 @@ function Snake(board, speed, head) {
     };
 
     this.containsCell = function (row, col) {
+        /*
         for (var i = 0; i < this.cells.length; i++) {
             var cell = this.cells[i];
             if (cell.row === row && cell.col === col) {
@@ -145,6 +146,8 @@ function Snake(board, speed, head) {
             }
         }
         return false;
+        */
+        return snakeContainsCell(this, row, col);
     };
 }
 
@@ -179,9 +182,11 @@ function addSwipeListener(snake) {
     });
 }
 
+/*
 function isAllowedDirection(direction, keywordDirection) {
     return direction !== keywordDirection && !(direction === "right" && keywordDirection === "left") && !(direction === "left" && keywordDirection === "right") && !(direction === "up" && keywordDirection === "down") && !(direction === "down" && keywordDirection === "up");
 }
+*/
 
 function direction(keyCode) {
     this.keyCodeToDirection = {2: "left", 4: "right", 8: "up", 16: "down", 37: "left", 38: "up", 39: "right", 40: "down"};

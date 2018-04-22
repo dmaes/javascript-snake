@@ -9,12 +9,27 @@
 <div id="container">
 
 </div>
+<div id="info">
+
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+<script src="student.js"></script>
 <script src="snake.js"></script>
 <script>
+    if (show) {
+        var html = "<p>I'm " + name + ". I'm " + age + " years old, and my interests are: ";
+        for (var i = 0; i < interests.length; i++) {
+            html += interests[i];
+            if (i , interests.length-1) html += ", ";
+        }
+        html += "</p>"
+        document.getElementById("info").innerHTML = html;
+    }
+
     (function () {
         initSnake("container", 20, 40, 150);
     })();
+
 </script>
 </body>
 </html>
